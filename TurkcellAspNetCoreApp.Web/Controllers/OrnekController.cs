@@ -6,6 +6,15 @@ public class OrnekController : Controller
 {
     public IActionResult Index()
     {
+        // ViewBag for basic data
+        ViewBag.Name = "AspNetCore";
+        ViewBag.NameList = new List<string>() { "Hasan", "Ahmet", "Mustafa" };
+
+        ViewData["Age"] = 23;
+        ViewData["Persons"] = new List<string>() { "Hasan", "Ahmet", "Mustafa" };
+
+        ViewBag.Person = new { Id = 1, Name = "Hasan", Age = 23 };
+        // ViewModel for bigger data
         return View();
     }
 
@@ -16,7 +25,7 @@ public class OrnekController : Controller
 
     public IActionResult ParameterView(int id)
     {
-        return RedirectToAction("JsonResultParameter", "Ornek", new {id=id});
+        return RedirectToAction("JsonResultParameter", "Ornek", new { id = id });
     }
 
     public IActionResult JsonResultParameter(int id)

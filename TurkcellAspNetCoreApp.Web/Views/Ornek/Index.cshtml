@@ -3,3 +3,31 @@
 }
 
 <h1>Ornek Controller, Index Sayfası</h1>
+
+@* <p>@ViewBag.Name</p> *@
+
+@{
+    var name = ViewBag.Name;
+    var nameList = ViewBag.NameList;
+    var person1 = ViewBag.Person;
+}
+
+<p>@name</p>
+
+@{
+    foreach (var n in nameList)
+    {
+        <p>@n</p>
+    }
+}
+
+<hr />
+
+<p>Age: @ViewData["Age"]</p>
+
+@foreach (var person in ViewData["Persons"] as List<string>)
+{
+    <p>@person</p>
+}
+
+<p>Id: @person1.Id, Name: @person1.Name, Age: @person1.Age</p>
